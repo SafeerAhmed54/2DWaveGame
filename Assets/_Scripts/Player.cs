@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private string _verticalAxis = "Vertical";
     [SerializeField] private int speed = 3;
     [SerializeField] private Rigidbody2D rb2DPlayer;
+
+    public UnityEvent onPlayerDie;
 
     private Vector2 _input;
     // Start is called before the first frame update
@@ -28,5 +31,13 @@ public class Player : MonoBehaviour
         _input = new Vector2(horizontalAxis , verticalAxis);
         _input.Normalize();
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(onPlayerDie != null)
+        {
+            onPlayerDie.Invoke();
+        }
+        Destroy(gameObject);
     }
 }

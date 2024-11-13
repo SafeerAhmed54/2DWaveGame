@@ -25,6 +25,12 @@ public class EnemyController : MonoBehaviour
     private void SpawnEnemy()
     {
         Vector3 spawnPosition = SelectRandomPosition();
+        GameObject enemyObject = Instantiate(enemyPrefeb, spawnPosition, Quaternion.identity);
+        Enemy enemy = enemyObject.GetComponent<Enemy>();
+        if(enemy != null)
+        {
+            enemy.OnDie += SpawnEnemy;
+        }
         Debug.Log(spawnPosition);
     }
 
@@ -51,7 +57,7 @@ public class EnemyController : MonoBehaviour
                 Debug.Log("Check Again");
                 break;
         }
-        return Vector3.zero;
+        return selectedTransform.position + (Vector3)Random.insideUnitCircle ;
     }
 
     public enum SpawnPointTypes

@@ -8653,6 +8653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 294906822}
   - component: {fileID: 294906823}
+  - component: {fileID: 294906824}
   m_Layer: 0
   m_Name: EnemyController
   m_TagString: Untagged
@@ -8775,6 +8776,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &294906824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294906820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0222f160e44bfa2419e92d45aaac43b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefeb: {fileID: 8340407583587384781, guid: acf5b478cfb7a8e4183b670868c585a0, type: 3}
+  enemyCount: 5
+  spawnTopLeft: {fileID: 204946371}
+  spawnTopRight: {fileID: 1920170174}
+  spawnBottomLeft: {fileID: 1929673986}
+  spawnBottomRight: {fileID: 1260062938}
 --- !u!1 &416778470
 GameObject:
   m_ObjectHideFlags: 0
@@ -8812,7 +8831,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73113349bbbb98a49b7236abde4ba5a5, type: 2}
+  - {fileID: 2100000, guid: 95a803a75a100e1489459423d01c82f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8833,12 +8852,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 7157561037332017152, guid: 5af2e667bb71848488a51d4749c1670e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5af2e667bb71848488a51d4749c1670e, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.61, y: 0.31}
+  m_Size: {x: 8.5625, y: 5.5625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9695,7 +9714,7 @@ SpriteRenderer:
   m_Size: {x: 0.61, y: 0.31}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1132474329
@@ -10683,7 +10702,7 @@ SpriteRenderer:
   m_Size: {x: 0.61, y: 0.31}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1204615392
@@ -10798,7 +10817,7 @@ SpriteRenderer:
   m_Size: {x: 0.61, y: 0.31}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1298046152
@@ -10886,12 +10905,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1299508687}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a609a2bfde35384f899114deace1c61, type: 3}
+  m_Script: {fileID: 11500000, guid: eab04366c4bb06b47b302f06bc31de3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb2DWeapon: {fileID: 0}
   speed: 200
-  rotationPoint: {x: 0, y: 0, z: 0}
-  rotationPosition: {x: 0, y: 0, z: 1}
 --- !u!1 &1327559850 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2594140274540218529, guid: aef68af7c544d8343a3a05c14d4b2afb, type: 3}
@@ -10913,6 +10931,21 @@ MonoBehaviour:
   _verticalAxis: Vertical
   speed: 5
   rb2DPlayer: {fileID: 0}
+  onPlayerDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1787546975}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1330029161
 GameObject:
   m_ObjectHideFlags: 0
@@ -10994,7 +11027,7 @@ SpriteRenderer:
   m_Size: {x: 0.61, y: 0.31}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1383926901
@@ -11006,6 +11039,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1383926902}
+  - component: {fileID: 1383926903}
   m_Layer: 0
   m_Name: Coluds
   m_TagString: Untagged
@@ -11034,6 +11068,27 @@ Transform:
   - {fileID: 1125373699}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1383926903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383926901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c602dd80476ccea468f6ac7bb745a83f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clouds:
+  - {fileID: 416778472}
+  - {fileID: 1298046152}
+  - {fileID: 1204615392}
+  - {fileID: 1749203570}
+  - {fileID: 1330029162}
+  - {fileID: 1125373699}
+  speed: 1
+  limitPositionX: -12.5
 --- !u!1 &1389844765
 GameObject:
   m_ObjectHideFlags: 0
@@ -11183,7 +11238,7 @@ SpriteRenderer:
   m_Size: {x: 0.61, y: 0.31}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1787546975
@@ -11263,7 +11318,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 23
+  m_AdditionalShaderChannelsFlag: 31
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -11275,7 +11330,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787546975}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
